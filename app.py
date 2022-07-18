@@ -16,6 +16,36 @@ def home():
         return render_template('home.html')   
     return render_template('home.html')
 
+@app.route('/inprogress',methods = ['POST']) 
+def markAsInprogress():
+    if request.method == 'POST':
+        todoitemid = request.form['todo_item_id']
+        userid = session['user_id']
+        isSuccess = updateTodoItemInDB(userid,todoitemid,'INPROGRESS') 
+        if isSuccess:
+            return  'markAsInprogress: is Success'
+    return 'markAsInprogress: is Failure'
+
+@app.route('/done',methods = ['POST']) 
+def markAsDone():
+    if request.method == 'POST':
+        todoitemid = request.form['todo_item_id']
+        userid = session['user_id']
+        isSuccess = updateTodoItemInDB(userid,todoitemid,'DONE') 
+        if isSuccess:
+            return  'markAsDone: is Success'
+    return 'markAsDone: is Failure'
+
+@app.route('/remove',methods = ['POST']) 
+def removeTodoItem():
+    if request.method == 'POST':
+        todoitemid = request.form['todo_item_id']
+        userid = session['user_id']
+        isSuccess = deleteTodoItemFromDB(userid,todoitemid) 
+        if isSuccess:
+            return  'removeTodoItem: is Success'
+    return 'removeTodoItem: is Failure'
+
 @app.route('/register',methods = ['POST', 'GET']) 
 def userRegistration():
     if request.method == 'POST':
@@ -25,6 +55,11 @@ def userRegistration():
         isSuccess = saveUserToDB(username,email,pwd) 
         if isSuccess:
             return  render_template('login.html')
+    try:
+        username=session['user']
+        return  redirect('/todolist')
+    except KeyError:
+        return render_template('userregistration.html') 
     return render_template('userregistration.html')
 
 @app.route('/login',methods = ['POST', 'GET']) 
@@ -37,6 +72,11 @@ def userLogin():
             session['user'] = username
             session['user_id'] = isSuccess[1]
             return  redirect('/todolist')
+    try:
+        username=session['user']
+        return  redirect('/todolist')
+    except KeyError:
+        return render_template('login.html')       
     return render_template('login.html')
 
 @app.route('/todolist') 
@@ -72,6 +112,40 @@ def saveUserToDB(username,email,password):
         con.close()
     return success
 
+def updateTodoItemInDB(userid,todoitemid,status):
+    print("update updateTodoItem in DB : "+userid + " " + todoitemid +" " + status)
+    con = sqlite3.connect(DATABASE)
+    try:
+        cur = con.cursor()
+        cur.execute("UPDATE todolist SET status = ? where user_id = ? AND todo_item_id = ?",(status,userid,todoitemid) )
+        con.commit()
+        success = True
+        print("updateTodoItem DB Success :) ")
+    except:
+        con.rollback()
+        success = False
+        print("updateTodoItem DB Failure !!!! ")
+    finally:
+        con.close()
+    return success
+
+def deleteTodoItemFromDB(userid,todoitemid):
+    print("Delete TodoItemFromDB in DB : "+userid + " " + todoitemid )
+    con = sqlite3.connect(DATABASE)
+    try:
+        cur = con.cursor()
+        cur.execute("DELETE from todolist where user_id = ? AND todo_item_id = ?",(userid,todoitemid) )
+        con.commit()
+        success = True
+        print("deleteTodoItemFromDB DB Success :) ")
+    except:
+        con.rollback()
+        success = False
+        print("deleteTodoItemFromDB DB Failure !!!! ")
+    finally:
+        con.close()
+    return success
+
 def verifyUserCred(username, password):
     print("Verify userdetails from DB : "+username +" " + password)
     con = sqlite3.connect(DATABASE)
@@ -102,7 +176,7 @@ def saveTodoItemToDB(userid,todoitem):
     try:
         with sqlite3.connect(DATABASE) as con:
             cur = con.cursor()
-            cur.execute("INSERT INTO todolist(user_id,todo_item,status) VALUES (?,?,?)",(userid,todoitem,'pending') )
+            cur.execute("INSERT INTO todolist(user_id,todo_item,status) VALUES (?,?,?)",(userid,todoitem,'PENDING') )
             con.commit()
             success = True
             print("todoitem DB Success :) ")
@@ -120,7 +194,7 @@ def fetchTodoList(userid):
     con = sqlite3.connect(DATABASE)
     try:
         cur = con.cursor()
-        cur.execute("Select todo_item,status from todolist where user_id=?",(userid,))
+        cur.execute("Select todo_item_id,todo_item,status from todolist where user_id=?",(userid,))
         todolist = cur.fetchall()
         print(todolist)
         return todolist  
