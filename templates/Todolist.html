@@ -14,9 +14,53 @@
      margin-right: 2px;
    }
   </style>
+  <script>
+    function markAsInprogress(todo_item_id)
+    {
+      $(document).ready(function()
+      {
+          $.post("/inprogress",
+            {
+              todo_item_id: todo_item_id
+            },
+            function(data, status){
+              // alert("Data: " + data + "\nStatus: " + status);
+              $("#todoitem-" + todo_item_id).removeClass("list-group-item-success");
+              $("#todoitem-" + todo_item_id).addClass("list-group-item-warning");
+            });
+      });
+    }
+     function markAsDone(todo_item_id)
+    {
+      $(document).ready(function()
+      {
+          $.post("/done",
+            {
+              todo_item_id: todo_item_id
+            },
+            function(data, status){
+              // alert("Data: " + data + "\nStatus: " + status);
+              $("#todoitem-" + todo_item_id).removeClass("list-group-item-warning");
+              $("#todoitem-" + todo_item_id).addClass("list-group-item-success");
+            });
+      });
+    }
+    function markAsRemove(todo_item_id)
+    {
+      $(document).ready(function()
+      {
+          $.post("/remove",
+            {
+              todo_item_id: todo_item_id
+            },
+            function(data, status){
+              $("#todoitem-" + todo_item_id).hide();
+            });
+      });
+    }
+  </script>
 </head>
 <body>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -40,10 +84,17 @@
     <div class="col-sm-8">
       <ul class="list-group">
         {% for todoitem in todolist %}
-        <li class="list-group-item ">{{ todoitem[0] }}
-        <button type="button" class="btn btn-danger btn-xs tilebutton">Remove</button>
-        <button type="button" class="btn btn-success btn-xs tilebutton">Done</button>
-        <button type="button" class="btn btn-warning btn-xs tilebutton ">Inprogress</button>
+        {% if todoitem[2]=="INPROGRESS" %}
+        <li class="list-group-item list-group-item-warning" id="todoitem-{{ todoitem[0] }}">
+          {% elif todoitem[2]=="DONE" %}
+        <li class="list-group-item list-group-item-success" id="todoitem-{{ todoitem[0] }}">
+          {% else %}
+        <li class="list-group-item " id="todoitem-{{ todoitem[0] }}">
+          {% endif %}
+        {{ todoitem[1] }}
+        <button type="button" class="btn btn-danger btn-xs tilebutton " onclick = "markAsRemove({{ todoitem[0] }});">Remove</button>
+        <button type="button" class="btn btn-success btn-xs tilebutton" onclick="markAsDone({{ todoitem[0] }});">Done</button>
+        <button type="button" class="btn btn-warning btn-xs tilebutton " onclick="markAsInprogress({{ todoitem[0] }});">Inprogress</button>
         </li> 
         {% endfor %}
       </ul>
