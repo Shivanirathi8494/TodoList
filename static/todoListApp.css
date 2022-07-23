@@ -17,8 +17,8 @@
  }
  .custom-bg
  {
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(189,166,234,1) 100%);
+    background: rgb(161,233,255);
+background: linear-gradient(90deg, rgba(161,233,255,1) 0%, rgba(255,223,176,1) 100%);
  }
  footer {
     background: rgb(2,0,36);
