@@ -1,49 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Todo - SingleFocus</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="{{ url_for('static', filename='todoListApp.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    .tilebutton{
-     float: right !important;
-     margin-left: 2px;
-     margin-right: 2px;
-   }
-  </style>
+  <script>
+    function markAsInprogress(todo_item_id)
+    {
+      $(document).ready(function()
+      {
+          $.post("/inprogress",
+            {
+              todo_item_id: todo_item_id
+            },
+            function(data, status){
+              // alert("Data: " + data + "\nStatus: " + status);
+              $("#todoitem-" + todo_item_id).removeClass("list-group-item-success");
+              $("#todoitem-" + todo_item_id).addClass("list-group-item-warning");
+            });
+      });
+    }
+     function markAsDone(todo_item_id)
+    {
+      $(document).ready(function()
+      {
+          $.post("/done",
+            {
+              todo_item_id: todo_item_id
+            },
+            function(data, status){
+              // alert("Data: " + data + "\nStatus: " + status);
+              $("#todoitem-" + todo_item_id).removeClass("list-group-item-warning");
+              $("#todoitem-" + todo_item_id).addClass("list-group-item-success");
+            });
+      });
+    }
+    function markAsRemove(todo_item_id)
+    {
+      $(document).ready(function()
+      {
+          $.post("/remove",
+            {
+              todo_item_id: todo_item_id
+            },
+            function(data, status){
+              $("#todoitem-" + todo_item_id).hide();
+            });
+      });
+    }
+  </script>
 </head>
-<body>
-
-<nav class="navbar navbar-default">
+<body class="custom-bg">
+<div class="container">
+<nav class="navbar navbar-default custom-bg">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">TodoList App</a>
+      <a href="/">
+        <img class="img-responsive" src="{{ url_for('static', filename='images/todologo.png') }}" width="120" height="120" alt="singlefocus">
+      </a>
     </div>
-    <ul class="nav navbar-nav">
+    <!-- <ul class="nav navbar-nav">
       <li class="active"><a href="/">Home</a></li>
-    </ul>
+    </ul> -->
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{ session['user'] }}</a></li>
-      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><a href="#" class="primary-color"><span class="glyphicon glyphicon-user primary-color"></span> {{ session['user'] }}</a></li>
+      <li><a href="/logout" class="primary-color"><span class="glyphicon glyphicon-log-out primary-color"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
   <br>
   <br>
-<div class="container">
+<!-- <div class="container"> -->
   <div class="row">
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8">
       <ul class="list-group">
         {% for todoitem in todolist %}
-        <li class="list-group-item ">{{ todoitem[0] }}
-        <button type="button" class="btn btn-danger btn-xs tilebutton">Remove</button>
-        <button type="button" class="btn btn-success btn-xs tilebutton">Done</button>
-        <button type="button" class="btn btn-warning btn-xs tilebutton ">Inprogress</button>
+        {% if todoitem[2]=="INPROGRESS" %}
+        <li class="list-group-item list-group-item-warning" id="todoitem-{{ todoitem[0] }}">
+          {% elif todoitem[2]=="DONE" %}
+        <li class="list-group-item list-group-item-success" id="todoitem-{{ todoitem[0] }}">
+          {% else %}
+        <li class="list-group-item " id="todoitem-{{ todoitem[0] }}">
+          {% endif %}
+        {{ todoitem[1] }}
+        <button type="button" class="btn btn-danger btn-xs tilebutton " onclick = "markAsRemove({{ todoitem[0] }});">Remove</button>
+        <button type="button" class="btn btn-success btn-xs tilebutton" onclick="markAsDone({{ todoitem[0] }});">Done</button>
+        <button type="button" class="btn btn-warning btn-xs tilebutton " onclick="markAsInprogress({{ todoitem[0] }});">Inprogress</button>
         </li> 
         {% endfor %}
       </ul>
@@ -67,6 +115,5 @@
     </div>
   </div>
 </div>
-
 </body>
 </html>
