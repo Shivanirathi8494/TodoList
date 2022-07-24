@@ -8,18 +8,27 @@ color: #ebd8f0 !important;
 background-color: #ebd8f0 !important;
 }
 .primary-color{
-color: #923da8 !important;
+/*color: #923da8 !important;*/
+color: #ffffff !important;
 /*background-color: #923da8;*/
 }
 .white-bg{
 background-color: #ffffff;
 border-color: #ffffff;
 }
-.custom-bg
+/*.custom-bg
 {
 background: rgb(161,233,255);
 background: linear-gradient(90deg, rgba(161,233,255,1) 0%, rgba(255,223,176,1) 100%);
+}*/
+
+.custom-bg
+{
+background: #099ffa; 
+/*background: rgb(0,212,255,1);*/
+/*background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);*/
 }
+
 footer {
 background: rgb(2,0,36);
 background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);
