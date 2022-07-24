@@ -9,46 +9,58 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body class="custom-bg">
-<div class="container">
-  <nav class="navbar navbar-default white-bg">
-  <div class="container-fluid">
+<body>
+<!-- <div class="container"> -->
+
+<div class="custom-bg">
+  <nav class="navbar navbar-inverse custom-bg">
+  <div class="container">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a href="/">
         <img class="img-responsive" src="{{ url_for('static', filename='images/todologo.png') }}" width="120" height="120" alt="singlefocus">
       </a>
     </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/register" class="primary-color"><span class="glyphicon glyphicon-user primary-color"></span> Register</a></li>
       <li><a href="/login" class="primary-color"><span class="glyphicon glyphicon-log-in primary-color"></span> Login</a></li>
     </ul>
   </div>
+  </div>
 </nav>
-<hr>
-<div class="jumbotron text-center white-bg" >
+
+<div class="jumbotron text-center" >
   <img class="img-responsive center-block" src="{{ url_for('static', filename='images/todologo.png') }}" width="360" height="360" alt="singlefocus">
+</div>
 </div>
   
 <!-- <div class="container"> -->
-  <div class="row">
+  <div class="row white-bg">
     <div class="col-sm-4">
     </div>
-    <div class="col-sm-4">
-      <a class="btn btn-lg btn-info" href="/register"><span class="glyphicon glyphicon-user"></span> Register</a> <br>
-      <a class="btn btn-lg btn-info" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+
+    <div class="col-sm-4"><br><br><br><br>
+      <a class="btn btn-lg btn-success" href="/register">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="btn btn-lg btn-success" href="/login">Login</a><br><br><br><br>
     </div>
     <div class="col-sm-4">
     </div>
   </div>
-</div>
+<!-- </div> -->
 <br><br><br><br><br><br><br><br><br><br><br><br>
+
 <footer>
   <div class="row">
     <div class="col-lg-2">
     </div>
     <div class="col-lg-3 col-xs-12 about-company">
       <a href="/">
-        <img class="img-responsive" src="{{ url_for('static', filename='images/todologo.png') }}" width="150" height="150" alt="singlefocus"><br>
+        <img class="img-responsive" src="{{ url_for('static', filename='images/companylogo.png') }}" width="150" height="150" alt="singlefocus"><br>
         <p class="pr-5 text-white-50">Start your day to day activities with singlefocus. </p>
       </a>
     </div>

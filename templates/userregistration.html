@@ -9,19 +9,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="custom-bg">
 <div class="container">
-<nav class="navbar navbar-default white-bg">
+<nav class="navbar navbar-default custom-bg">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand primary-color"  href="/">TodoList App</a>
+      <a href="/">
+        <img class="img-responsive" src="{{ url_for('static', filename='images/todologo.png') }}" width="120" height="120" alt="singlefocus">
+      </a>
     </div>
    <!--  <ul class="nav navbar-nav">
       <li class="active"><a href="/">Home</a></li>
     </ul> -->
   </div>
 </nav>
-<div class="jumbotron text-center white-bg">
+<div class="jumbotron text-center custom-bg">
   <h2 class="primary-color">User Registration</h2> 
 </div>
   <br>
