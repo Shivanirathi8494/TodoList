@@ -28,7 +28,14 @@
 </div>
   <br>
   <br>
-<!-- <div class="container"> -->
+
+{% if message_type %}
+<div class="alert alert-{{message_type}} alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>{{message_head}}!</strong> {{message_body}}
+</div>
+{% endif %}
+
   <div class="row">
     <div class="col-sm-4">
     </div>

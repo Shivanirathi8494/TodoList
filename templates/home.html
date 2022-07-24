@@ -9,10 +9,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body class="custom-bg">
-<div class="container">
+<body>
+<!-- <div class="container"> -->
+
+<div class="custom-bg">
   <nav class="navbar navbar-inverse custom-bg">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -31,42 +33,67 @@
   </div>
   </div>
 </nav>
-<div class="jumbotron text-center custom-bg" >
+
+<div class="jumbotron text-center" >
   <img class="img-responsive center-block" src="{{ url_for('static', filename='images/todologo.png') }}" width="360" height="360" alt="singlefocus">
+</div>
 </div>
   
 <!-- <div class="container"> -->
   <div class="row white-bg">
     <div class="col-sm-4">
     </div>
-    <div class="col-sm-4"><br><br><br><br>
-      <a class="btn btn-lg btn-success" href="/register">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a class="btn btn-lg btn-success" href="/login">Login</a><br><br><br><br>
+
+    <div class="col-sm-4 text-center"><br><br><br><br>
+      <a class="btn btn-lg btn-success" href="/register"><span class="glyphicon glyphicon-user"></span> Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="btn btn-lg btn-success" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a><br><br><br><br>
     </div>
     <div class="col-sm-4">
     </div>
   </div>
+<br><br><br><br><br>
+<div class="container">
+  <div class="row white-bg text-center">
+    <div class="col-sm-4">
+      <h2 class="center">Access Anywhere Anytime</h2>
+      <p class="light">You can access your todo list anywhere anytime.</p>
+    </div>
+
+    <div class="col-sm-4">
+      <h2 class="center">Free to Use</h2>
+      <p class="light">You can play any number of times. No Hidden Costs.</p>
+    </div>
+    <div class="col-sm-4">
+      <h2 class="center">No Pen & Paper Needed</h2>
+      <p class="light">No more hustle of collecting pen and paper before starting a game.</p>
+    </div>
+  </div>
 </div>
+<br><br><br><br><br><br><br>
 
 <footer>
   <div class="row">
-    <div class="col-lg-5 col-xs-12 about-company">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-3 col-xs-12 about-company">
       <a href="/">
         <img class="img-responsive" src="{{ url_for('static', filename='images/companylogo.png') }}" width="150" height="150" alt="singlefocus"><br>
         <p class="pr-5 text-white-50">Start your day to day activities with singlefocus. </p>
       </a>
     </div>
-    <div class="col-lg-3 col-xs-12 links">
+    <div class="col-lg-2 col-xs-12 links">
       <h4>Developers</h4><hr>
       <p>Nitish Srivastava</p>
       <p>Shivani Rathi</p>
     </div>
-    <div class="col-lg-4 col-xs-12 location">
+    <div class="col-lg-3 col-xs-12 location">
       <h4>Connect with us @</h4><hr>
       <p>Ph2,Srinivasa apartment,green glen layout,</p>
         <p>Bellandur,Banglore Pincode-560103</p>
       <p class="mb-0"><i class="fa fa-phone mr-3"></i>9958087983</p>
       <p><i class="fa fa-envelope-o mr-3"></i>info@singlefocus.in</p>
+    </div>
+    <div class="col-lg-2">
     </div>
   </div>
   <div class="row">

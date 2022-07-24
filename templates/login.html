@@ -20,6 +20,14 @@
     </div>
   </div>
 </nav>
+
+{% if message_type %}
+<div class="alert alert-{{message_type}} alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>{{message_head}}!</strong> {{message_body}}
+</div>
+{% endif %}
+
 <div class="jumbotron text-center custom-bg">
   <h2 class="primary-color">User Login</h2> 
 </div>

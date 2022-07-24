@@ -1,4 +1,3 @@
-
 from flask import Flask,render_template,request,session,redirect
 import sqlite3
 
@@ -55,7 +54,11 @@ def userRegistration():
         pwd = request.form['pwd']
         isSuccess = saveUserToDB(username,email,pwd) 
         if isSuccess:
-            return  render_template('login.html')
+            message_type,message_head,message_body = getSuccessMessageDetail("Your account is created successfully. You can login now.")
+            return render_template('login.html',message_type=message_type, message_head=message_head, message_body=message_body)
+        else:
+            message_type,message_head,message_body = getErrorMessageDetail("Username might be taken. Please try with a different username.")
+            return render_template('userregistration.html',message_type=message_type, message_head=message_head, message_body=message_body)
     try:
         username=session['user']
         return  redirect('/todolist')
@@ -73,6 +76,9 @@ def userLogin():
             session['user'] = username
             session['user_id'] = isSuccess[1]
             return  redirect('/todolist')
+        else:
+            message_type,message_head,message_body = getErrorMessageDetail("Username or password is incorrect.")
+            return render_template('login.html',message_type=message_type, message_head=message_head, message_body=message_body)
     try:
         username=session['user']
         return  redirect('/todolist')
@@ -95,6 +101,23 @@ def additem():
         if isSuccess:
             return  redirect('/todolist')
     return  redirect('/todolist')
+
+
+def getErrorMessageDetail(error_msg):
+    message_type = "danger"
+    message_head = "Error"
+    return message_type, message_head, error_msg
+
+def getSuccessMessageDetail(success_msg):
+    message_type = "success"
+    message_head = "Success"
+    return message_type, message_head, success_msg
+
+def getInfoMessageDetail(info_msg):
+    message_type = "info"
+    message_head = "Info"
+    return message_type, message_head, success_msg
+
 
 def saveUserToDB(username,email,password):
     print("Saving userdetails to DB : "+username + " " + email +" " + password)
@@ -214,5 +237,5 @@ def userLogout():
     session.pop('user',None)
     return render_template('login.html')
 
-if __name__ =='__main__':  
+if __name__ =='__main__': 
     app.run(debug = True) 
