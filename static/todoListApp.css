@@ -17,12 +17,12 @@
  }
  .custom-bg
  {
-    background: rgb(117,138,246);
-    background: radial-gradient(circle, rgba(117,138,246,1) 0%, rgba(216,160,172,1) 100%);
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(189,166,234,1) 100%);
  }
  footer {
-    background: #19235a;
-    /*background: linear-gradient(16deg, rgba(10,38,183,1) 0%, rgba(194,74,100,1) 100%);*/
+    background: rgb(2,0,36);
+    background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);
     color: #f5f5f5;
     padding: 32px;
   }
