@@ -1,7 +1,9 @@
 .tilebutton{
  float: right !important;
- margin-left: 2px;
- margin-right: 2px;
+ margin-left: 1px;
+ margin-right: 1px;
+ border-radius: 65%;
+ /*border-image-width: 0;*/
 }
 .secondary-color{
 color: #ebd8f0 !important;
@@ -9,34 +11,48 @@ background-color: #ebd8f0 !important;
 }
 .primary-color{
 /*color: #923da8 !important;*/
-color: #ffffff !important;
+/*color: #ffffff !important;*/
 /*background-color: #923da8;*/
+color: #ffffff !important;
 }
 .white-bg{
 background-color: #ffffff;
 border-color: #ffffff;
 }
-/*.custom-bg
-{
-background: rgb(161,233,255);
-background: linear-gradient(90deg, rgba(161,233,255,1) 0%, rgba(255,223,176,1) 100%);
-}*/
-
+.offwhite-bg{
+background-color: #f0f0f0;
+border-color: #f0f0f0;
+}
 .custom-bg
 {
-background: #099ffa; 
+background: #cd2653;
+color:#cd2653 ; 
+/*099ffa;*/ 
 /*background: rgb(0,212,255,1);*/
 /*background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);*/
 }
+.custom-color
+{
+/*background: #cd2653;*/
+color:#cd2653 ; 
+/*099ffa;*/ 
+/*background: rgb(0,212,255,1);*/
+/*background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);*/
+}
+.light-grey
+{
+    color: #818181;
+}
 
 footer {
-background: rgb(2,0,36);
-background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);
-color: #f5f5f5;
+/*background: rgb(2,0,36);*/
+/*background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);*/
+background: #cd2653;
+color: #f0f0f0;
 padding: 32px;
 }
 footer a {
-color: #f5f5f5;
+color: #f0f0f0;
 }
 footer a:hover {
 color: #777;
@@ -49,3 +65,104 @@ background: inherit;
 background: inherit;
 border-width: 0px;
 }
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #cd2653 !important;
+    border-radius: 5px;
+    /*min-height: 70px;*/
+  }
+
+   .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #cd2653 !important;
+  }
+   .navbar li a, .navbar .navbar-brand {
+    color: #cd2653 !important;
+  }
+  .bg-grey-dark {
+    background-color: #424242;
+  }
+
+.slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  .fab {
+  padding:20 px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 7px 4px;
+  /*border-radius: 50%;*/
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  color: white !important;
+  opacity: 0.9;
+}
+
+/* Set a specific color for each brand */
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #ff6900;
+  color: white;
+}
+.bg-grey {
+    background-color: #f6f6f6;
+  }
