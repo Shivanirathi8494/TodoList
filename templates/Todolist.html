@@ -54,22 +54,26 @@
     }
   </script>
 </head>
-<body class="custom-bg">
+<body class="white-bg">
 <div class="container">
-<nav class="navbar navbar-default custom-bg">
+<nav class="navbar navbar-inverse custom-bg">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a href="/">
         <img class="img-responsive" src="{{ url_for('static', filename='images/todologo.png') }}" width="120" height="120" alt="singlefocus">
       </a>
     </div>
-    <!-- <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-    </ul> -->
+    <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#" class="primary-color"><span class="glyphicon glyphicon-user primary-color"></span> {{ session['user'] }}</a></li>
       <li><a href="/logout" class="primary-color"><span class="glyphicon glyphicon-log-out primary-color"></span> Logout</a></li>
     </ul>
+    </div>
   </div>
 </nav>
   <br>
@@ -86,7 +90,7 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8">
-      <ul class="list-group">
+      <ul class="list-group custom-color">
         {% for todoitem in todolist %}
         {% if todoitem[2]=="INPROGRESS" %}
         <li class="list-group-item list-group-item-warning" id="todoitem-{{ todoitem[0] }}">
@@ -96,9 +100,9 @@
         <li class="list-group-item " id="todoitem-{{ todoitem[0] }}">
           {% endif %}
         {{ todoitem[1] }}
-        <button type="button" class="btn btn-danger btn-xs tilebutton " onclick = "markAsRemove({{ todoitem[0] }});">Remove</button>
-        <button type="button" class="btn btn-success btn-xs tilebutton" onclick="markAsDone({{ todoitem[0] }});">Done</button>
-        <button type="button" class="btn btn-warning btn-xs tilebutton " onclick="markAsInprogress({{ todoitem[0] }});">Inprogress</button>
+         <button type="button" class="btn btn-danger btn-xs tilebutton " onclick = "markAsRemove({{ todoitem[0] }});"><span class="glyphicon glyphicon-remove "></span></button>
+         <button type="button" class="btn btn-success btn-xs tilebutton" onclick="markAsDone({{ todoitem[0] }});"><span class="glyphicon glyphicon-ok"></span></button>
+         <button type="button" class="btn btn-warning btn-xs tilebutton " onclick="markAsInprogress({{ todoitem[0] }});"><span class="glyphicon glyphicon-play"></span></button>
         </li> 
         {% endfor %}
       </ul>
@@ -111,11 +115,11 @@
     </div>
     <div class="col-sm-8">
       <form action="/add" method="POST">
-        <div class="form-group">
+        <div class="form-group custom-color">
           <label for="todoitem">Add new todo:</label>
           <input type="text" class="form-control" name="todoitem">
         </div>
-        <button type="submit" class="btn btn-default">Add</button>
+        <button type="submit" class="btn btn-default custom-color">Add</button>
       </form>
     </div>
     <div class="col-sm-2">

@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link href="{{ url_for('static', filename='todoListApp.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body id="mypage">
 <!-- <div class="container"> -->
 
-<div class="custom-bg">
+<div class="white-bg">
   <nav class="navbar navbar-inverse custom-bg">
   <div class="container">
     <div class="navbar-header">
@@ -27,20 +28,19 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/register" class="primary-color"><span class="glyphicon glyphicon-user primary-color"></span> Register</a></li>
-      <li><a href="/login" class="primary-color"><span class="glyphicon glyphicon-log-in primary-color"></span> Login</a></li>
+      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
   </div>
 </nav>
-
 <div class="jumbotron text-center" >
   <img class="img-responsive center-block" src="{{ url_for('static', filename='images/todologo.png') }}" width="360" height="360" alt="singlefocus">
 </div>
 </div>
   
 <!-- <div class="container"> -->
-  <div class="row white-bg">
+  <div class="row">
     <div class="col-sm-4">
     </div>
 
@@ -53,7 +53,7 @@
   </div>
 <br><br><br><br><br>
 <div class="container">
-  <div class="row white-bg text-center">
+  <div class="row text-center">
     <div class="col-sm-4">
       <h2 class="center">Access Anywhere Anytime</h2>
       <p class="light">You can access your todo list anywhere anytime.</p>
@@ -71,7 +71,42 @@
 </div>
 <br><br><br><br><br><br><br>
 
-<footer>
+<div id="contact" class="bg-grey-dark">
+  <div class="container">
+  <div class="row">
+      <div class="col-lg-4 col-xs-12 light-grey">
+        <h2>About this site</h2>
+        <p>Start your day to day activities with singlefocus.
+        <br><br>
+        <h3>Developers</h3>
+        <p>Nitish Srivastava</p>
+        <p>Shivani Rathi</p>
+      </div>
+      <div class="col-lg-4 col-xs-12 light-grey">
+        <h2>Contact</h2>
+        <p><span class="glyphicon glyphicon-map-marker"></span> PH2, Srinivasa apartment,green glen layout</p>
+        <p>Bellandur,Banglore Pincode-560103</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +91 7874383436 , +91 9958087983</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> info@singlefocus.in</p>
+      </div>
+      <div class="col-lg-4 col-xs-12 light-grey">
+        <h2>Social Media</h2>
+        <a href="https://twitter.com/singlefocus_in" target="_blank" class="fab fa-twitter "></a>
+        <a href="https://www.facebook.com/profile.php?id=100084310552800" target="_blank" class="fab fa-facebook "></a>
+        <a href="https://www.instagram.com/singlefocus.in/" target="_blank" class="fab fa-instagram "></a>
+        <a href="https://www.linkedin.com/in/singlefocus-productivity-b87901248" target="_blank" class="fab fa-linkedin"></a>
+      </div>
+  </div>
+</div>
+</div>
+
+<footer class="text-center bg-grey-dark">
+  <a href="#mypage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up custom-color"></span>
+  </a>
+</footer>
+
+<!-- <footer>
   <div class="row">
     <div class="col-lg-2">
     </div>
@@ -100,7 +135,7 @@
     <div class="col copyright text-center">
     <p class=""><small class="text-white-50">© 2022. All Rights Reserved.</small></p>
   </div>
-</footer>
+</footer> -->
 
 </body>
 </html>
