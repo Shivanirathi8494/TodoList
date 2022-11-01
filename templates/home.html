@@ -40,13 +40,17 @@
 </div>
   
 <!-- <div class="container"> -->
-  <div class="row">
+  <div class="row custom-bg">
     <div class="col-sm-4">
     </div>
 
-    <div class="col-sm-4 text-center"><br><br><br><br>
-      <a class="btn btn-lg btn-success" href="/register"><span class="glyphicon glyphicon-user"></span> Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a class="btn btn-lg btn-success" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a><br><br><br><br>
+    <div class="col-sm-4 text-center">
+        <br><br>
+        <h3 class="white-text">Create your account in one easy step,<br> or login if you already have an account.</h3>
+        <br><br>
+      <a class="btn btn-lg btn-success home-buttons" href="/register"><span class="glyphicon glyphicon-user"></span> Create an account</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="btn btn-lg btn-success home-buttons" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login to account</a>
+        <br><br><br><br>
     </div>
     <div class="col-sm-4">
     </div>
@@ -55,16 +59,19 @@
 <div class="container">
   <div class="row text-center">
     <div class="col-sm-4">
-      <h2 class="center">Access Anywhere Anytime</h2>
-      <p class="light">You can access your todo list anywhere anytime.</p>
+        <p style="font-size: xxx-large" class="custom-color"><span class="glyphicon glyphicon-cloud"></span></p>
+        <h3 class="center">Access Anywhere Anytime</h3>
+        <p class="light">You can access your todo list anywhere anytime.</p>
     </div>
 
     <div class="col-sm-4">
-      <h2 class="center">Free to Use</h2>
+        <p style="font-size: xxx-large" class="custom-color"><span class="glyphicon glyphicon-thumbs-up"></span></p>
+      <h3 class="center">Free to Use</h3>
       <p class="light">You can play any number of times. No Hidden Costs.</p>
     </div>
     <div class="col-sm-4">
-      <h2 class="center">No Pen & Paper Needed</h2>
+        <p style="font-size: xxx-large" class="custom-color"><span class="glyphicon glyphicon-phone"></span></p>
+      <h3 class="center">No Pen & Paper Needed</h3>
       <p class="light">No more hustle of collecting pen and paper before starting a game.</p>
     </div>
   </div>
@@ -74,23 +81,32 @@
 <div id="contact" class="bg-grey-dark">
   <div class="container">
   <div class="row">
-      <div class="col-lg-4 col-xs-12 light-grey">
-        <h2>About this site</h2>
-        <p>Start your day to day activities with singlefocus.
-        <br><br>
+      <div class="col-lg-12 col-xs-12 light-grey">
+          <br><br>
+          <a href="https://singlefocus.in" target="_blank">
+              <img class="img-responsive" src="{{ url_for('static', filename='images/companylogo.png') }}" width="150" height="150" alt="singlefocus"><br>
+          </a>
+          <p>Start your day to day activities with singlefocus. </p>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-4 col-xs-12 white-text">
+{#        <h2>About this site</h2>#}
+{#        <p>Start your day to day activities with singlefocus.#}
+{#        <br><br>#}
         <h3>Developers</h3>
         <p>Nitish Srivastava</p>
         <p>Shivani Rathi</p>
       </div>
-      <div class="col-lg-4 col-xs-12 light-grey">
-        <h2>Contact</h2>
-        <p><span class="glyphicon glyphicon-map-marker"></span> PH2, Srinivasa apartment,green glen layout</p>
-        <p>Bellandur,Banglore Pincode-560103</p>
-        <p><span class="glyphicon glyphicon-phone"></span> +91 7874383436 , +91 9958087983</p>
+      <div class="col-lg-4 col-xs-12 white-text">
+        <h3>Contact</h3>
+        <p><span class="glyphicon glyphicon-map-marker"></span> PH-2, Srinivasa apartment, Green Glen Layout</p>
+        <p>Bellandur, Banglore,  Pincode - 560103</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +91-7874383436 , +91-9958087983</p>
         <p><span class="glyphicon glyphicon-envelope"></span> info@singlefocus.in</p>
       </div>
-      <div class="col-lg-4 col-xs-12 light-grey">
-        <h2>Social Media</h2>
+      <div class="col-lg-4 col-xs-12 white-text">
+        <h3>Social Media</h3>
         <a href="https://twitter.com/singlefocus_in" target="_blank" class="fab fa-twitter "></a>
         <a href="https://www.facebook.com/profile.php?id=100084310552800" target="_blank" class="fab fa-facebook "></a>
         <a href="https://www.instagram.com/singlefocus.in/" target="_blank" class="fab fa-instagram "></a>

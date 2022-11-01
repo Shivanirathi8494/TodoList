@@ -44,6 +44,10 @@ color:#cd2653 ;
     color: #818181;
 }
 
+.white-text{
+  color: #FFFFFF;
+}
+
 footer {
 /*background: rgb(2,0,36);*/
 /*background: linear-gradient(276deg, rgba(2,0,36,1) 0%, rgba(56,38,98,1) 35%, rgba(0,212,255,1) 100%);*/
@@ -164,5 +168,34 @@ border-width: 0px;
   color: white;
 }
 .bg-grey {
-    background-color: #f6f6f6;
+    background-color: #808080;
   }
+
+.home-buttons {
+  background-color: #cd2653;
+  color: white;
+  border-color: white;
+}
+
+.home-buttons:hover {
+  background-color: white;
+  color: #cd2653;
+  border-color: white;
+}
+
+.custom-form {
+  background-color: #cd2653;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.custom-form-big {
+  background-color: #cd2653;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 5px;
+}
